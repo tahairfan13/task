@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>User Payments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Status</th>
+      <th>Issue date</th>
+      <th>Payment date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_payments.each do |user_payment| %>
+      <tr>
+        <td><%= user_payment.user_id %></td>
+        <td><%= user_payment.status %></td>
+        <td><%= user_payment.issue_date.strftime("%F") %></td>
+        <td><%= user_payment.payment_date.strftime("%F") %></td>
+        <td><%= link_to 'Show', user_payment %></td>
+        <td><%= link_to 'Edit', edit_user_payment_path(user_payment) %></td>
+        <td><%= link_to 'Destroy', user_payment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h1>Unpaid</h1>
+
+<% @unpaid_payments.each do |payment| %>
+    <td><%= payment.issue_date.strftime("%F") %></td>,
+    <td><%= payment.payment_date.strftime("%F") %></td>
+    <br>
+<% end %>
+<br>
+
+<%= link_to 'New User Payment', new_user_payment_path %>

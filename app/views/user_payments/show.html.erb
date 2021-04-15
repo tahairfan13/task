@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_payment.user_id %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @user_payment.status %>
+</p>
+
+<p>
+  <strong>Issue date:</strong>
+  <%= @user_payment.issue_date.strftime("%F") %>
+</p>
+
+<p>
+  <strong>Payment date:</strong>
+  <%= @user_payment.payment_date.strftime("%F") %>
+</p>
+
+<%= link_to 'Edit', edit_user_payment_path(@user_payment) %> |
+<%= link_to 'Back', user_payments_path %>
